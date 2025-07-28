@@ -433,3 +433,13 @@
             uploadedImages.splice(index, 1);
             displayImagePreview();
         }
+
+	// Auto-set max date to today for date inputs
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            const today = new Date().toISOString().split('T')[0];
+            dateInputs.forEach(input => {
+                input.max = today;
+            });
+        });
+    </script>
