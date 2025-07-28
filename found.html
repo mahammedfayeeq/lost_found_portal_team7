@@ -428,3 +428,8 @@
                 previewContainer.appendChild(imageContainer);
             });
         }
+
+	function removeImage(index) {
+            uploadedImages.splice(index, 1);
+            displayImagePreview();
+        }
