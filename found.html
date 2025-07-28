@@ -377,4 +377,32 @@
             event.stopPropagation();
             event.currentTarget.classList.remove('dragover');
         }
+        
+	 function processFiles(files) {
+            const imageFiles = files.filter(file => file.type.startsWith('image/'));
 
+            if (uploadedImages.length + imageFiles.length > maxImages) {
+                alert(`You can only upload up to ${maxImages} images.`);
+                return;
+            }
+
+            imageFiles.forEach(file => {
+                if (file.size > maxFileSize) {
+                    alert(`File "${file.name}" is too large. Maximum size is 5MB.`);
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imageData = {
+                        file: file,
+                        dataUrl: e.target.result,
+                        name: file.name
+                    };
+
+                    uploadedImages.push(imageData);
+                    displayImagePreview();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
