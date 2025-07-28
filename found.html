@@ -288,3 +288,25 @@
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
         }
+
+	function submitForm(event) {
+            event.preventDefault();
+
+            // Basic form validation
+            const form = event.target;
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#d1d5db';
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
