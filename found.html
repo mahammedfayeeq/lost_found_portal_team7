@@ -324,3 +324,28 @@
             console.log(`Found item form submitted with reference: ${referenceId}`);
             console.log(`Images uploaded: ${uploadedImages.length}`);
         }
+
+	 function clearForm() {
+            document.getElementById('foundItemForm').reset();
+            uploadedImages = [];
+            document.getElementById('imagePreview').innerHTML = '';
+
+            // Reset input styling
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.style.borderColor = '#d1d5db';
+            });
+        }
+
+        function toggleLocationDetails(select) {
+            const locationDetails = document.getElementById('locationDetails');
+            const input = locationDetails.querySelector('input');
+
+            if (select.value === 'with-me') {
+                locationDetails.style.display = 'none';
+                input.required = false;
+            } else {
+                locationDetails.style.display = 'block';
+                input.required = true;
+            }
+        }
