@@ -314,3 +314,13 @@
 	     // Generate reference ID
             const referenceId = `FF-${new Date().getFullYear()}-${Math.floor(Math.random() * 900000) + 100000}`;
             document.getElementById('reference-id').textContent = referenceId;
+            
+	    // Show success message
+            showPage('success-message');
+            
+            // Clear the form
+            clearForm();
+            
+            console.log(`Found item form submitted with reference: ${referenceId}`);
+            console.log(`Images uploaded: ${uploadedImages.length}`);
+        }
