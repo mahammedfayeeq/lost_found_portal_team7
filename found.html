@@ -255,6 +255,8 @@
         </div>
     </div>
 
+    <!-- Success Message -->
+
                      <div id="success-message" class="page">
         <div class="max-w-2xl mx-auto px-4 py-16">
             <div class="bg-white rounded-xl shadow-lg p-8 text-center success-animation">
@@ -273,4 +275,16 @@
             </div>
         </div>
     </div>
+   
 
+    <script>
+        let uploadedImages = [];
+        const maxImages = 3;
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
