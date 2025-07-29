@@ -280,4 +280,9 @@
             });
         }
 
-
+       
+	 function toggleRewardField() {
+            const checkbox = document.getElementById('rewardCheckbox');
+            const rewardField = document.getElementById('rewardField');
+            rewardField.style.display = checkbox.checked ? 'block' : 'none';
+        }
