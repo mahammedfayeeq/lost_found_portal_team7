@@ -251,5 +251,7 @@
             }
 
 	    
-
+             // Generate reference ID
+            const referenceId = `LF-${new Date().getFullYear()}-${Math.floor(Math.random() * 900000) + 100000}`;
+            document.getElementById('reference-id').textContent = referenceId;
 	    
