@@ -286,3 +286,12 @@
             const rewardField = document.getElementById('rewardField');
             rewardField.style.display = checkbox.checked ? 'block' : 'none';
         }
+
+
+	 // Image upload functions
+        function handleFileSelect(event) {
+            const files = Array.from(event.target.files);
+            processFiles(files);
+        }
+
+
