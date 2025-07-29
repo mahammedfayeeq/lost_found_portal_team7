@@ -216,7 +216,7 @@
                             <textarea rows="3" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none" placeholder="Describe what you were doing when you lost the item or any other relevant details"></textarea>
                         </div>
 
-                        <script>
+<script>
         let uploadedImages = [];
         const maxImages = 3;
         const maxFileSize = 5 * 1024 * 1024; // 5MB
@@ -227,3 +227,29 @@
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
         }
+
+	function submitForm(event) {
+            event.preventDefault();
+
+            // Basic form validation
+            const form = event.target;
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#d1d5db';
+                }
+            });
+
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+	    
+
+	    
