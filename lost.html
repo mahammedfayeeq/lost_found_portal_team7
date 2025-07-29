@@ -294,4 +294,29 @@
             processFiles(files);
         }
 
+        
+	function handleDrop(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const uploadArea = event.currentTarget;
+            uploadArea.classList.remove('dragover');
+
+            const files = Array.from(event.dataTransfer.files);
+            processFiles(files);
+        }
+
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.classList.add('dragover');
+        }
+
+        function handleDragLeave(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            event.currentTarget.classList.remove('dragover');
+        }
+
+
 
