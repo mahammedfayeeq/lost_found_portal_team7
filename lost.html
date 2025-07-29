@@ -257,4 +257,27 @@
 
 	
 	// Show success message
-            showPage('success-message');    
+            showPage('success-message');
+
+	// Clear the form
+            clearForm();
+            
+            console.log(`Lost item form submitted with reference: ${referenceId}`);
+            console.log(`Images uploaded: ${uploadedImages.length}`);
+        }
+
+        function clearForm() {
+            document.getElementById('lostItemForm').reset();
+            uploadedImages = [];
+            document.getElementById('imagePreview').innerHTML = '';
+            document.getElementById('rewardField').style.display = 'none';
+            document.getElementById('rewardCheckbox').checked = false;
+            
+            // Reset input styling
+            const inputs = document.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.style.borderColor = '#d1d5db';
+            });
+        }
+
+
